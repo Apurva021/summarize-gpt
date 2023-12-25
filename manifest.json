@@ -2,18 +2,15 @@
   "manifest_version": 3,
   "name": "Summarise GPT",
   "description": "Will Summarise the text present in the web page",
-  "version": "1.0.0",
-  "permissions": ["activeTab", "scripting"],
+  "version": "1.0.1",
+  "permissions": ["activeTab", "scripting","tabs", "storage" ],
   "action": {
     "default_popup": "src/html/extension.html"
   },
+  "options_ui": {
+    "page": "src/html/options.html"
+  },
   "background": {
     "service_worker": "src/js/background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://*/**", "http://*/**"],
-      "js": ["src/js/read-text.js"]
-    }
-  ]
+  }
 }
