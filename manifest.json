@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Summarise GPT",
+  "name": "summarize-gpt",
   "description": "Will Summarise the text present in the web page",
   "version": "1.0.1",
   "permissions": ["activeTab", "scripting","tabs", "storage" ],
