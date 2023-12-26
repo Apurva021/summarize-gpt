@@ -20,14 +20,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             text = '';
         })
     } else if(request.action == 'popup'){
-        let activeTabId = '';
+        let activeTabUrl = undefined;
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            activeTabId = tabs[0].url;
+            activeTabUrl = tabs[0]?.url;
             // although we have property tabs.id better to use tab.url as the key
             // bcuz for same tab id when the url changes our summary should be updated.
-            if(summaries[activeTabId]) {
+            if(summaries[activeTabUrl]) {
                 console.log("summary found");
-                chrome.runtime.sendMessage({action: 'summary-found', 'summary': summaries[activeTabId]})
+                chrome.runtime.sendMessage({action: 'summary-found', 'summary': summaries[activeTabUrl]})
             } else {
                 console.log("summary not present script called.");
                 chrome.scripting.executeScript({
@@ -38,9 +38,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         });
     } else if(request.action == "summary-created") {
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-            let activeTabUrl = '';
-            activeTabUrl = tabs[0].url;
-            summaries[activeTabUrl] = request.summary;
+            let activeTabUrl = undefined;
+            activeTabUrl = tabs[0]?.url;
+            if(activeTabUrl) summaries[activeTabUrl] = request.summary;
         })
     }
 });
