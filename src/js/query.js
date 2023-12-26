@@ -41,7 +41,7 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
     // convert response to json;
     const summary = await response.json();
     if(summary?.error) {
-      element.innerHTML = summary.error.message
+      element.innerHTML = 'Save/Update the API key from options menu. Right click on the extension icon. Click on options. Follow the steps to configure the API key'
     } else {
       // console.log(summary.candidates[0].content.parts[0].text);
       element.innerHTML = summary.candidates[0].content.parts[0].text;
