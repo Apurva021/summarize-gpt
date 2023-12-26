@@ -42,5 +42,16 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             activeTabUrl = tabs[0]?.url;
             if(activeTabUrl) summaries[activeTabUrl] = request.summary;
         })
+    } else if (request.action == "regenerate") {
+        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+            let activeTabUrl = undefined;
+            activeTabUrl = tabs[0]?.url;
+            delete summaries[activeTabUrl];
+            console.log("deleted previous summary, generating new");
+            chrome.scripting.executeScript({
+                target: {tabId: tabs[0].id, allFrames: true},
+                files: ['src/js/read-text.js']
+            });
+        })
     }
 });

@@ -4,6 +4,17 @@ let text = "";
 chrome.runtime.sendMessage({ action: "popup" });
 
 const element = document.getElementById("summary");
+const regenerateButton = document.getElementById("regenerate");
+
+hideBtn()
+
+function hideBtn() {
+  regenerateButton.style.visibility = 'hidden'
+}
+
+function showBtn() {
+  regenerateButton.style.visibility = 'visible'
+}
 
 chrome.runtime.onMessage.addListener(async function (request, sender, sendResponse) {
   if (request.action == "background") {
@@ -45,12 +56,18 @@ chrome.runtime.onMessage.addListener(async function (request, sender, sendRespon
     } else {
       // console.log(summary.candidates[0].content.parts[0].text);
       element.innerHTML = summary.candidates[0].content.parts[0].text;
+      showBtn();
       chrome.runtime.sendMessage({ action: "summary-created", "summary": summary.candidates[0].content.parts[0].text});
     }
     
   } else if(request.action == "summary-found") {
     element.innerHTML = request.summary;
+    showBtn();
   }
 });
 
-
+document.getElementById('regenerate').addEventListener('click', function saveAPIKey() {
+  chrome.runtime.sendMessage({ action: "regenerate" });
+  element.innerHTML = 'Summary is Loading...'
+  regenerateButton.style.visibility = 'hidden'
+})
