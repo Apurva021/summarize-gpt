@@ -8,7 +8,7 @@
 
 ### What is summarize-gpt?
 
-summarize-gpt is a chrome extension that can be used to summarixe the content on any web page. It extracts the text-content from the website that you are viewing and uses the google-gemini API to summarise the content.
+summarize-gpt is a chrome extension that can be used to summarize the content on any web page. It extracts the text-content from the website that you are viewing and uses the google-gemini API to summarise the content.
 
 
 ### Installing summarize-gpt
