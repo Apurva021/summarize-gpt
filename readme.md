@@ -13,6 +13,8 @@ summarize-gpt is a chrome extension that can be used to summarize the content on
 
 ### Installing summarize-gpt
 
+You can add the extension from [chrome web store](https://chromewebstore.google.com/detail/fcpgdlnekpdnajmgkchjdnmfnangcecp?hl=en-GB). Or follow the steps below
+
 - Clone/Download this repo
 - Go to the Extensions page by entering ```chrome://extensions``` in a new tab.
 - Enable Developer Mode by clicking the toggle switch next to Developer mode
