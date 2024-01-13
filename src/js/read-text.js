@@ -1,5 +1,5 @@
 function readText() {
-  let all_elements = document.querySelectorAll("p, span, table");
+  let all_elements = document.querySelectorAll("p, span, table, pre, strong, h1,h2,h3,h4,h5,h6,em");
   let text = "";
   all_elements.forEach(function (element) {
     text += element.textContent;
