@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "summarize-gpt",
   "description": "Extract the key points of any web page in few seconds",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "permissions": [
       "activeTab",
       "scripting",
