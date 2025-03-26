@@ -39,3 +39,7 @@ You can add the extension from [chrome web store](https://chromewebstore.google.
 ### Credits
 
 I have made use of [chrome extension docs](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world) to create this guide.
+
+### Privacy Policy
+
+The extension does not collect or share any user data.
